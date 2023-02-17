@@ -1,0 +1,42 @@
+[
+    {
+        "model": "rareapi.reaction",
+        "pk": 1,
+        "fields": {
+            "label": "Happy",
+            "emoji_url": "https://w7.pngwing.com/pngs/698/250/png-transparent-smiley-emoji-blushing-emoji-smiley-face-smile-face-smiley-sticker.png"
+        }
+    },
+    {
+        "model": "rareapi.reaction",
+        "pk": 2,
+        "fields": {
+            "label": "Like",
+            "emoji_url": "https://www.pngfind.com/pngs/m/682-6827427_transparent-thumb-up-emoji-png-thumbs-up-apple.png"
+        }
+    },
+    {
+        "model": "rareapi.reaction",
+        "pk": 3,
+        "fields": {
+            "label": "Love",
+            "emoji_url": "https://www.clipartmax.com/png/middle/124-1245735_heart-emoji-transparent-background.png"
+        }
+    },
+    {
+        "model": "rareapi.reaction",
+        "pk": 4,
+        "fields": {
+            "label": "Sad",
+            "emoji_url": "https://toppng.com/uploads/preview/sad-face-transparent-png-crying-emoji-transparent-background-11562873850hiicomfwuq.png"
+        }
+    },
+    {
+        "model": "rareapi.reaction",
+        "pk": 5,
+        "fields": {
+            "label": "Wow",
+            "emoji_url": "https://e1.pngegg.com/pngimages/477/616/png-clipart-emoji-sticker-wow-emoji-illustration-thumbnail.png"
+        }
+    }
+]
