@@ -3,7 +3,7 @@
     "model": "rareapi.post",
     "pk": 1,
     "fields": {
-      "user": 1,
+      "author": 1,
       "category": 1,
       "title": "A Traveler's Diary: Exploring the World One Adventure at a Time",
       "publication_date": "2023-04-07",
@@ -16,7 +16,7 @@
     "model": "rareapi.post",
     "pk": 2,
     "fields": {
-      "user": 2,
+      "author": 2,
       "category": 2,
       "title": "Musings on Music: Exploring the Sounds that Move Us",
       "publication_date": "2023-05-23",
@@ -29,7 +29,7 @@
     "model": "rareapi.post",
     "pk": 3,
     "fields": {
-      "user": 3,
+      "author": 3,
       "category": 3,
       "title": "Tasting the World: Exploring Global Flavors and Culinary Traditions",
       "publication_date": "2022-08-28",
@@ -42,7 +42,7 @@
     "model": "rareapi.post",
     "pk": 4,
     "fields": {
-      "user": 4,
+      "author": 4,
       "category": 4,
       "title": "Chasing the Elements: Exploring the Wonders of Weather",
       "publication_date": "2022-11-08",
@@ -55,7 +55,7 @@
     "model": "rareapi.post",
     "pk": 5,
     "fields": {
-      "user": 5,
+      "author": 5,
       "category": 5,
       "title": "Beyond the Game: Exploring the Stories and Emotions Behind Sports",
       "publication_date": "2023-01-22",
