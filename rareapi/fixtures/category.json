@@ -1,0 +1,38 @@
+[
+
+    {
+        "model": "rare.category",
+        "pk": 1,
+        "fields": {
+            "label": "Travel"
+        }
+    },
+    {
+        "model": "rare.category",
+        "pk": 2,
+        "fields": {
+            "label": "Music"
+        }
+    },
+    {
+        "model": "rare.category",
+        "pk": 3,
+        "fields": {
+            "label": "Food"
+        }
+    },
+    {
+        "model": "rare.category",
+        "pk": 4,
+        "fields": {
+            "label": "Weather"
+        }
+    },
+    {
+        "model": "rare.category",
+        "pk": 5,
+        "fields": {
+            "label": "Sports"
+        }
+    }
+]
