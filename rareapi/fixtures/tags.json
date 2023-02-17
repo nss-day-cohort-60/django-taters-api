@@ -26,5 +26,12 @@
         "fields": {
             "label": "Things that go 'meow'"
         }
+    },
+    {
+        "model": "rareapi.tag",
+        "pk": 5,
+        "fields": {
+            "label": "Wabi Sabi"
+        }
     }
 ]
