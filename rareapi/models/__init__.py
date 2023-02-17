@@ -6,3 +6,4 @@ from .postreaction import PostReaction
 from .posttag import PostTag
 from .tag import Tag
 from .subscription import Subscription
+from .post import Post
