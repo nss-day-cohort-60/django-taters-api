@@ -9,5 +9,5 @@ class Post(models.Model):
     title = models.CharField(max_length=155)
     publication_date = models.DateField()
     image_url = models.ImageField(upload_to='images/')
-    content = models.CharField(max_length=155)
+    content = models.CharField(max_length=500)
     approved = models.BooleanField(default=False)
