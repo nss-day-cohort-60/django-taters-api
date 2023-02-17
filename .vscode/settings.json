@@ -3,4 +3,6 @@
         "--load-plugins=pylint_django",
         "--django-settings-module=rare.settings",
     ],
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
 }
