@@ -1,6 +1,6 @@
 [
     {
-        "model": "rareapi.tag",
+        "model": "rareapi.subscription",
         "pk": 1,
         "fields": {
             "follower": 1,
@@ -9,7 +9,7 @@
         }
     },
     {
-        "model": "rareapi.tag",
+        "model": "rareapi.subscription",
         "pk": 2,
         "fields": {
             "follower": 2,
@@ -18,7 +18,7 @@
         }
     },
     {
-        "model": "rareapi.tag",
+        "model": "rareapi.subscription",
         "pk": 3,
         "fields": {
             "follower": 3,
@@ -27,7 +27,7 @@
         }
     },
     {
-        "model": "rareapi.tag",
+        "model": "rareapi.subscription",
         "pk": 4,
         "fields": {
             "follower": 2,
@@ -36,7 +36,7 @@
         }
     },
     {
-        "model": "rareapi.tag",
+        "model": "rareapi.subscription",
         "pk": 5,
         "fields": {
             "follower": 5,
