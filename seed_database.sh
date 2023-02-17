@@ -1,4 +1,4 @@
-rm db.sqlite3
+# rm db.sqlite3
 rm -rf ./rareapi/migrations
 python3 manage.py migrate
 python3 manage.py makemigrations rareapi
