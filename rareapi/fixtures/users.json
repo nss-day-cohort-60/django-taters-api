@@ -3,11 +3,11 @@
         "model": "auth.user",
         "pk": 1,
         "fields": {
-            "first_name": "Carrie",
-            "last_name": "Belk",
-            "email": "me@me.com",
-            "username": "Carrie1945",
-            "password": "pbkdf2_sha256$216000$qMRH8szID7Z8$Vljya2V3XfruOHuvx1hGz9ZyKg4bxbw7rc2WO0gTR7I=",
+            "first_name": "Emily",
+            "last_name": "Nelson",
+            "email": "enelson@email.com",
+            "username": "enelson",
+            "password": "password",
             "date_joined": "2020-08-28T14:51:39.989Z",
             "is_active": true
         }
@@ -16,12 +16,12 @@
         "model": "auth.user",
         "pk": 2,
         "fields": {
-            "first_name": "Carrie",
-            "last_name": "Belk",
-            "email": "me@me.com",
-            "username": "Carrie1945",
-            "password": "pbkdf2_sha256$216000$qMRH8szID7Z8$Vljya2V3XfruOHuvx1hGz9ZyKg4bxbw7rc2WO0gTR7I=",
-            "date_joined": "2020-08-28T14:51:39.989Z",
+            "first_name": "Jessica",
+            "last_name": "Meeker",
+            "email": "jmeeker@email.com",
+            "username": "jmeeker",
+            "password": "password",
+            "date_joined": "2021-08-28T14:51:39.989Z",
             "is_active": true
         }
     },
@@ -29,12 +29,12 @@
         "model": "auth.user",
         "pk": 3,
         "fields": {
-            "first_name": "Carrie",
-            "last_name": "Belk",
-            "email": "me@me.com",
-            "username": "Carrie1945",
-            "password": "pbkdf2_sha256$216000$qMRH8szID7Z8$Vljya2V3XfruOHuvx1hGz9ZyKg4bxbw7rc2WO0gTR7I=",
-            "date_joined": "2020-08-28T14:51:39.989Z",
+            "first_name": "Nick",
+            "last_name": "Valdez",
+            "email": "nvaldez@email.com",
+            "username": "nvaldez",
+            "password": "password",
+            "date_joined": "2022-08-28T14:51:39.989Z",
             "is_active": true
         }
     },
@@ -42,12 +42,12 @@
         "model": "auth.user",
         "pk": 4,
         "fields": {
-            "first_name": "Carrie",
-            "last_name": "Belk",
-            "email": "me@me.com",
-            "username": "Carrie1945",
-            "password": "pbkdf2_sha256$216000$qMRH8szID7Z8$Vljya2V3XfruOHuvx1hGz9ZyKg4bxbw7rc2WO0gTR7I=",
-            "date_joined": "2020-08-28T14:51:39.989Z",
+            "first_name": "Lauren",
+            "last_name": "Hanson",
+            "email": "lhanson@email.com",
+            "username": "lhanson",
+            "password": "password",
+            "date_joined": "2020-05-28T14:51:39.989Z",
             "is_active": true
         }
     },
@@ -55,12 +55,12 @@
         "model": "auth.user",
         "pk": 5,
         "fields": {
-            "first_name": "Carrie",
-            "last_name": "Belk",
-            "email": "me@me.com",
-            "username": "Carrie1945",
-            "password": "pbkdf2_sha256$216000$qMRH8szID7Z8$Vljya2V3XfruOHuvx1hGz9ZyKg4bxbw7rc2WO0gTR7I=",
-            "date_joined": "2020-08-28T14:51:39.989Z",
+            "first_name": "Maegan",
+            "last_name": "Phan",
+            "email": "mphan@email.com",
+            "username": "mphan",
+            "password": "password",
+            "date_joined": "2021-06-28T14:51:39.989Z",
             "is_active": true
         }
     }
