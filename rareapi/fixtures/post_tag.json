@@ -1,0 +1,82 @@
+[
+    {
+        "model": "rareapi.posttag",
+        "pk": 1,
+        "fields": {
+            "post": "1",
+            "tag": "3"
+        }
+    },
+    {
+        "model": "rareapi.posttag",
+        "pk": 2,
+        "fields": {
+            "post": "2",
+            "tag": "4"
+        }
+    },
+    {
+        "model": "rareapi.posttag",
+        "pk": 3,
+        "fields": {
+            "post": "3",
+            "tag": "5"
+        }
+    },
+    {
+        "model": "rareapi.posttag",
+        "pk": 4,
+        "fields": {
+            "post": "4",
+            "tag": "5"
+        }
+    },
+    {
+        "model": "rareapi.posttag",
+        "pk": 5,
+        "fields": {
+            "post": "5",
+            "tag": "4"
+        }
+    },
+    {
+        "model": "rareapi.posttag",
+        "pk": 6,
+        "fields": {
+            "post": "1",
+            "tag": "3"
+        }
+    },
+    {
+        "model": "rareapi.posttag",
+        "pk": 7,
+        "fields": {
+            "post": "2",
+            "tag": "2"
+        }
+    },
+    {
+        "model": "rareapi.posttag",
+        "pk": 8,
+        "fields": {
+            "post": "3",
+            "tag": "1"
+        }
+    },
+    {
+        "model": "rareapi.posttag",
+        "pk": 9,
+        "fields": {
+            "post": "4",
+            "tag": "1"
+        }
+    },
+    {
+        "model": "rareapi.posttag",
+        "pk": 10,
+        "fields": {
+            "post": "5",
+            "tag": "2"
+        }
+    }
+]
