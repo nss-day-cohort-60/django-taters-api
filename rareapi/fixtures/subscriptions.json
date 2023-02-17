@@ -1,0 +1,38 @@
+[
+    {
+        "model": "rareapi.tag",
+        "pk": 1,
+        "fields": {
+            "follower": 1,
+            "author": 2,
+            "created_on": "2023-02-17"
+        }
+    },
+    {
+        "model": "rareapi.tag",
+        "pk": 2,
+        "fields": {
+            "follower": 2,
+            "author": 1,
+            "created_on": "2023-02-16"
+        }
+    },
+    {
+        "model": "rareapi.tag",
+        "pk": 3,
+        "fields": {
+            "follower": 3,
+            "author": 1,
+            "created_on": "2023-02-14"
+        }
+    },
+    {
+        "model": "rareapi.tag",
+        "pk": 4,
+        "fields": {
+            "follower": 2,
+            "author": 3,
+            "created_on": "2023-02-15"
+        }
+    }
+]
