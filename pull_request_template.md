@@ -1,4 +1,4 @@
-Closes Ticket #
+Closes #
 
 
 # Description of Proposed Changes
