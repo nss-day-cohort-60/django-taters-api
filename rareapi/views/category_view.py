@@ -22,6 +22,20 @@ class CategoryView(ViewSet):
         serialized = CategorySerializer(category, context={'request': request})
         return Response(serialized.data, status=status.HTTP_200_OK)
     
+    def create(self, request):
+        """Handle POST operations
+
+        Returns
+            Response -- JSON serialized game instance
+        """
+
+        category = Category.objects.create(
+            label = request.data['label']
+        )
+        
+        serializer = CategorySerializer(category)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    
 class CategorySerializer(serializers.ModelSerializer):
 
     class Meta:
