@@ -21,6 +21,16 @@ class CategoryView(ViewSet):
 
         serialized = CategorySerializer(category, context={'request': request})
         return Response(serialized.data, status=status.HTTP_200_OK)
+
+    def create(self, request): 
+     
+        category = Category.objects.create(
+            lable=request.data['label']
+        )
+        
+        serializer = CategorySerializer(category)
+        return Response(serializer.data)
+
     
 class CategorySerializer(serializers.ModelSerializer):
 
