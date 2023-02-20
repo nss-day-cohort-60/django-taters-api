@@ -15,9 +15,14 @@ class PostView(ViewSet):
         Returns:
             Response -- JSON serialized events
         """
-        post = Post.objects.get(pk=pk)
+        try:
+            post = Post.objects.get(pk=pk)
+
+        except Post.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
         serializer = PostSerializer(post)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
     def list(self, request):
         """Handle GET requests to get all posts
@@ -25,10 +30,9 @@ class PostView(ViewSet):
         Returns:
             Response -- JSON serialized list of posts
         """
-        # reactions = Reaction.objects.all()
         posts = Post.objects.all()
         serializer = PostSerializer(posts, many=True)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 class PostReactionSerializer(serializers.ModelSerializer):
