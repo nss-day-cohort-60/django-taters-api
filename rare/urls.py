@@ -14,11 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import include, path
 from rest_framework import routers
-from rareapi.views import AuthorView, TagView
+from rareapi.views import CategoryView, AuthorView, TagView
+
 
 router = routers.DefaultRouter(trailing_slash=False)
+router.register(r'categories', CategoryView, 'category')
 router.register(r'tags', TagView, 'tag') #set up url, tell server which view to use when it sees that url, and assign a base name in case of error
 router.register(r'authors', AuthorView, 'author')
 
