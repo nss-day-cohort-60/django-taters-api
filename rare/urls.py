@@ -19,17 +19,18 @@ from rareapi.views import register_user, login_user
 from rest_framework import routers
 from django.urls import include, path
 from rest_framework import routers
-from rareapi.views import CategoryView, AuthorView
+from rareapi.views import CategoryView, AuthorView, TagView
 
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'categories', CategoryView, 'category')
+router.register(r'tags', TagView, 'tag') #set up url, tell server which view to use when it sees that url, and assign a base name in case of error
 router.register(r'authors', AuthorView, 'author')
 
 urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
     path('register', register_user),
-    path('login', login_user)
+    path('login', login_user),
 ]
 
