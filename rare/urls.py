@@ -16,7 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from rareapi.views import AuthorView, PostView
+from rareapi.views import AuthorView
+from rareapi.views import PostView
+
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'authors', AuthorView, 'author')
@@ -24,7 +26,6 @@ router.register(r'posts', PostView, 'post')
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('admin/', admin.site.urls),
-    path('', include(router.urls)),
+    path('admin/', admin.site.urls)
 
 ]

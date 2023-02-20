@@ -3,7 +3,7 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from rareapi.models import Post
+from rareapi.models import Post, Reaction, Tag
 
 
 class PostView(ViewSet):
@@ -25,14 +25,35 @@ class PostView(ViewSet):
         Returns:
             Response -- JSON serialized list of posts
         """
+        # reactions = Reaction.objects.all()
         posts = Post.objects.all()
         serializer = PostSerializer(posts, many=True)
         return Response(serializer.data)
 
 
+class PostReactionSerializer(serializers.ModelSerializer):
+    """JSON serializer for reactions
+    """
+    class Meta:
+        model = Reaction
+        fields = ('id', 'label', 'emoji_url')
+
+
+class PostTagSerializer(serializers.ModelSerializer):
+    """JSON serializer for reactions
+    """
+    class Meta:
+        model = Tag
+        fields = ('id', 'label',)
+
+
 class PostSerializer(serializers.ModelSerializer):
     """JSON serializer for posts
     """
+
+    reactions = PostReactionSerializer(many=True)
+    tags = PostTagSerializer(many=True)
+
     class Meta:
         model = Post
         fields = ('id', 'author', 'category',
