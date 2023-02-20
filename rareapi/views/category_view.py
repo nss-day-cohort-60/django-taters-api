@@ -33,12 +33,6 @@ class CategoryView(ViewSet):
 
     
     def create(self, request):
-        """Handle POST operations
-
-        Returns
-            Response -- JSON serialized game instance
-        """
-
         category = Category.objects.create(
             label = request.data['label']
         )
