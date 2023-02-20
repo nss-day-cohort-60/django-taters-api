@@ -14,8 +14,11 @@ class CategoryView(ViewSet):
         return Response(serialized.data, status=status.HTTP_200_OK)
 
     def retrieve(self, request, pk=None):
+        try: 
+            category = Category.objects.get(pk=pk)
+        except Category.DoesNotExist: 
+            return Response(None, status=status.HTTP_404_NOT_FOUND)
 
-        category = Category.objects.get(pk=pk)
         serialized = CategorySerializer(category, context={'request': request})
         return Response(serialized.data, status=status.HTTP_200_OK)
     
