@@ -32,7 +32,7 @@ class AuthorView(ViewSet):
         """
         authors = Author.objects.all()
         serializer = AuthorSerializer(authors, many=True)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 class AuthorSerializer(serializers.ModelSerializer):
     """JSON serializer for authors
