@@ -15,9 +15,18 @@ class AuthorView(ViewSet):
         Returns:
             Response -- JSON serialized author
         """
-        author = Author.objects.get(pk=pk)
-        serializer = AuthorSerializer(author)
-        return Response(serializer.data)
+    #     author = Author.objects.get(pk=pk)
+    #     serializer = AuthorSerializer(author)
+    #     return Response(serializer.data, status=status.HTTP_200_OK)
+
+    # def retrieve(self, request, pk=None):
+        try: 
+            author = Author.objects.get(pk=pk)
+        except Author.DoesNotExist: 
+            return Response(None, status=status.HTTP_404_NOT_FOUND)
+
+        serialized = AuthorSerializer(author, context={'request': request})
+        return Response(serialized.data, status=status.HTTP_200_OK)
 
     def list(self, request):
         """Handle GET requests to get all authors
