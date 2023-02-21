@@ -3,7 +3,7 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from rareapi.models import Post, Reaction, Tag, Author, Category, PostTag
+from rareapi.models import Post, Reaction, Tag, Author, Category, PostTag, Subscription
 
 
 class PostView(ViewSet):
@@ -35,7 +35,19 @@ class PostView(ViewSet):
         Returns:
             Response -- JSON serialized list of posts
         """
-        posts = Post.objects.all()
+        posts = []
+        author = Author.objects.get(user=request.auth.user)
+
+        if "subscribed" in request.query_params:
+            subscriptions = Subscription.objects.filter(follower_id=author)
+            
+            for subscribed in subscriptions:
+                subscription_author= subscribed.author
+                posts = Post.objects.filter(author_id=subscription_author)
+
+        else:
+            posts = Post.objects.all()
+            
         serializer = PostSerializer(posts, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
