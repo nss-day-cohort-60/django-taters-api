@@ -62,6 +62,11 @@ class TagView(ViewSet):
 
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
+    def destroy(self, request, pk):
+        tag = Tag.objects.get(pk=pk)
+        tag.delete()
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
+
 class TagSerializer(serializers.ModelSerializer):
     """JSON serializer for game types"""
     # Converts meta data requested to JSON stringified object using Tag as model
