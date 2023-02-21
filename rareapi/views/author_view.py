@@ -4,6 +4,7 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
 from rareapi.models import Author
+from django.contrib.auth.models import User
 
 
 class AuthorView(ViewSet):
@@ -33,10 +34,21 @@ class AuthorView(ViewSet):
         authors = Author.objects.all()
         serializer = AuthorSerializer(authors, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+    
+class UserSerializer(serializers.ModelSerializer):
+    """JSON serializer for user
+    """
+
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'email', 'date_joined')
+
 
 class AuthorSerializer(serializers.ModelSerializer):
     """JSON serializer for authors
     """
+    user = UserSerializer(many=False)
+
     class Meta:
         model = Author
-        fields = ('id', 'user', 'bio', 'profile_image_url')
+        fields = ('id', 'user', 'bio', 'profile_image_url', 'full_name',)

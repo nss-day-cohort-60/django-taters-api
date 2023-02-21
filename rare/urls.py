@@ -23,7 +23,7 @@ from rareapi.views import CategoryView, AuthorView, TagView, register_user, logi
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'categories', CategoryView, 'category')
 router.register(r'tags', TagView, 'tag')
-router.register(r'authors', AuthorView, 'author')
+router.register(r'users', AuthorView, 'author')
 router.register(r'posts', PostView, 'post')
 
 urlpatterns = [
