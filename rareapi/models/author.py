@@ -13,7 +13,6 @@ class Author(models.Model):
     def full_name(self):
         return f'{self.user.first_name} {self.user.last_name}'
 
-
     @property
     def subscribed(self):
         return self.__subscribed

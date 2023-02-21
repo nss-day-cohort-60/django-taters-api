@@ -36,6 +36,12 @@ class PostView(ViewSet):
             Response -- JSON serialized list of posts
         """
         posts = Post.objects.all()
+        # author = Author.objects.get(user=request.auth.user)
+
+        author = request.query_params.get('author', None)
+        if author is not None:
+            posts = posts.filter(author_id=author)
+
         serializer = PostSerializer(posts, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
