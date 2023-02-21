@@ -87,4 +87,4 @@ class AuthorSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Author
-        fields = ('id', 'user', 'bio', 'profile_image_url', 'follower_of_author', 'subscribed', 'full_name',)
+        fields = ('id', 'user', 'bio', 'profile_image_url', 'follower_of_author', 'subscribed', 'full_name', )
