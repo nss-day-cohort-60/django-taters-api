@@ -3,7 +3,7 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from rareapi.models import Post, Reaction, Tag
+from rareapi.models import Post, Reaction, Tag, Author, Category, PostTag
 
 
 class PostView(ViewSet):
@@ -38,6 +38,42 @@ class PostView(ViewSet):
         posts = Post.objects.all()
         serializer = PostSerializer(posts, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+    
+    def create(self, request):
+        """Handle POST operations
+
+        Returns
+            Response -- JSON serialized game instance
+        """
+        try:
+            author = Author.objects.get(user=request.auth.user)
+        except Author.DoesNotExist:
+            return Response({'message': 'You sent an invalid token'}, status=status.HTTP_404_NOT_FOUND)
+        
+        try:
+            category = Category.objects.get(pk=request.data['category'])
+        except Category.DoesNotExist:
+            return Response({'message': 'You sent an invalid category Id'}, status=status.HTTP_404_NOT_FOUND)
+        
+        post = Post.objects.create(
+            author = author,
+            category = category,
+            title = request.data['title'],
+            publication_date = request.data['publication_date'],
+            image_url = request.data['image_url'],
+            content = request.data['content']
+        )
+
+        tags_selected = request.data['tags']
+
+        for tag in tags_selected:
+            post_tag = PostTag()
+            post_tag.post = post
+            post_tag.tag = Tag.objects.get(pk = tag)
+            post_tag.save()
+
+        serializer = PostSerializer(post)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 class PostReactionSerializer(serializers.ModelSerializer):
