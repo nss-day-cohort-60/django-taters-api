@@ -23,18 +23,28 @@ class CategoryView(ViewSet):
         return Response(serialized.data, status=status.HTTP_200_OK)
     
     def create(self, request):
-        """Handle POST operations
-
-        Returns
-            Response -- JSON serialized game instance
-        """
-
         category = Category.objects.create(
             label = request.data['label']
         )
         
         serializer = CategorySerializer(category)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+    
+    def update(self, request, pk):
+        """Handle POST operations
+        Returns
+            Response -- JSON serialized game instance
+        """
+        try:
+            Category.objects.get(pk=pk)
+        except Category.DoesNotExist:
+            return Response({'message': 'You sent an invalid category Id'})
+        
+        category_to_update = Category.objects.get(pk=pk)
+        category_to_update.label=request.data["label"]
+        category_to_update.save()
+
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
     
 class CategorySerializer(serializers.ModelSerializer):
 
