@@ -23,12 +23,6 @@ class CategoryView(ViewSet):
         return Response(serialized.data, status=status.HTTP_200_OK)
     
     def create(self, request):
-        """Handle POST operations
-
-        Returns
-            Response -- JSON serialized game instance
-        """
-
         category = Category.objects.create(
             label = request.data['label']
         )
