@@ -81,22 +81,18 @@ class PostView(ViewSet):
         Returns
             Response -- JSON serialized game instance
         """
-        try:
-            author = Author.objects.get(user=request.auth.user)
-        except Author.DoesNotExist:
-            return Response({'message': 'You sent an invalid token'}, status=status.HTTP_404_NOT_FOUND)
         
         try:
             category = Category.objects.get(pk=request.data['category'])
         except Category.DoesNotExist:
             return Response({'message': 'You sent an invalid category Id'}, status=status.HTTP_404_NOT_FOUND)
         
+
         post_to_update = Post.objects.get(pk=pk)
-        post_to_update.publication_date = request.data['publication_date'],
-        post_to_update.author = author,
-        post_to_update.category = category,
-        post_to_update.title = request.data['title'],
-        post_to_update.image_url = request.data['image_url'],
+        post_to_update.publication_date = request.data['publication_date']
+        post_to_update.category = category
+        post_to_update.title = request.data['title']
+        post_to_update.image_url = request.data['image_url']
         post_to_update.content = request.data['content']
         post_to_update.save()
 
@@ -107,12 +103,11 @@ class PostView(ViewSet):
 
         for tag in tags_selected:
             post_tag = PostTag()
-            post_tag.post = post
+            post_tag.post = post_to_update
             post_tag.tag = Tag.objects.get(pk = tag)
             post_tag.save()
 
-        serializer = PostSerializer(post)
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
 
 
 class PostReactionSerializer(serializers.ModelSerializer):
