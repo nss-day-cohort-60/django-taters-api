@@ -75,7 +75,7 @@ class PostView(ViewSet):
         serializer = PostSerializer(post)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     
-    def update(self, request):
+    def update(self, request, pk):
         """Handle POST operations
 
         Returns
@@ -91,16 +91,19 @@ class PostView(ViewSet):
         except Category.DoesNotExist:
             return Response({'message': 'You sent an invalid category Id'}, status=status.HTTP_404_NOT_FOUND)
         
-        post = Post.objects.create(
-            author = author,
-            category = category,
-            title = request.data['title'],
-            publication_date = request.data['publication_date'],
-            image_url = request.data['image_url'],
-            content = request.data['content']
-        )
+        post_to_update = Post.objects.get(pk=pk)
+        post_to_update.publication_date = request.data['publication_date'],
+        post_to_update.author = author,
+        post_to_update.category = category,
+        post_to_update.title = request.data['title'],
+        post_to_update.image_url = request.data['image_url'],
+        post_to_update.content = request.data['content']
+        post_to_update.save()
 
         tags_selected = request.data['tags']
+
+        current_tag_relationships = PostTag.objects.filter(post__id=pk)
+        current_tag_relationships.delete()
 
         for tag in tags_selected:
             post_tag = PostTag()
