@@ -125,6 +125,13 @@ class PostTagSerializer(serializers.ModelSerializer):
         model = Tag
         fields = ('id', 'label',)
 
+class PostAuthorSerializer(serializers.ModelSerializer):
+    """JSON serializer for reactions
+    """
+    class Meta:
+        model = Author
+        fields = ('id', 'full_name')
+
 
 class PostSerializer(serializers.ModelSerializer):
     """JSON serializer for posts
@@ -132,6 +139,7 @@ class PostSerializer(serializers.ModelSerializer):
 
     reactions = PostReactionSerializer(many=True)
     tags = PostTagSerializer(many=True)
+    author = PostAuthorSerializer()
 
     class Meta:
         model = Post
