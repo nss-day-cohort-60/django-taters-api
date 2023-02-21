@@ -74,6 +74,40 @@ class PostView(ViewSet):
 
         serializer = PostSerializer(post)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+    
+    def update(self, request, pk):
+        """Handle POST operations
+
+        Returns
+            Response -- JSON serialized game instance
+        """
+        
+        try:
+            category = Category.objects.get(pk=request.data['category'])
+        except Category.DoesNotExist:
+            return Response({'message': 'You sent an invalid category Id'}, status=status.HTTP_404_NOT_FOUND)
+        
+
+        post_to_update = Post.objects.get(pk=pk)
+        post_to_update.publication_date = request.data['publication_date']
+        post_to_update.category = category
+        post_to_update.title = request.data['title']
+        post_to_update.image_url = request.data['image_url']
+        post_to_update.content = request.data['content']
+        post_to_update.save()
+
+        tags_selected = request.data['tags']
+
+        current_tag_relationships = PostTag.objects.filter(post__id=pk)
+        current_tag_relationships.delete()
+
+        for tag in tags_selected:
+            post_tag = PostTag()
+            post_tag.post = post_to_update
+            post_tag.tag = Tag.objects.get(pk = tag)
+            post_tag.save()
+
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
 
 
 class PostReactionSerializer(serializers.ModelSerializer):
@@ -91,6 +125,13 @@ class PostTagSerializer(serializers.ModelSerializer):
         model = Tag
         fields = ('id', 'label',)
 
+class PostAuthorSerializer(serializers.ModelSerializer):
+    """JSON serializer for reactions
+    """
+    class Meta:
+        model = Author
+        fields = ('id', 'full_name')
+
 
 class PostSerializer(serializers.ModelSerializer):
     """JSON serializer for posts
@@ -98,6 +139,7 @@ class PostSerializer(serializers.ModelSerializer):
 
     reactions = PostReactionSerializer(many=True)
     tags = PostTagSerializer(many=True)
+    author = PostAuthorSerializer()
 
     class Meta:
         model = Post
