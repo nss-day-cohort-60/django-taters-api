@@ -37,7 +37,19 @@ class TagView(ViewSet):
         serializer = TagSerializer(tags, many=True)
         
         return Response(serializer.data, status=status.HTTP_200_OK) #Constructs response and returns data requested by the client in the response body as an array of JSON stringified objects
+        
+    def create(self, request):
+            """Handle POST operations
+            Returns
+                Response -- JSON serialized tag instance
+            """
 
+            tag = Tag.objects.create(
+                label=request.data["label"]
+            )
+            serializer = TagSerializer(tag)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+    
 class TagSerializer(serializers.ModelSerializer):
     """JSON serializer for game types"""
     # Converts meta data requested to JSON stringified object using Tag as model
