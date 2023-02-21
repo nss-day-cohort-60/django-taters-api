@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from rest_framework import serializers, status
 from rareapi.models import Author
 from rest_framework.decorators import action
+from django.contrib.auth.models import User
 
 
 class AuthorView(ViewSet):
@@ -41,7 +42,7 @@ class AuthorView(ViewSet):
 
         serializer = AuthorSerializer(authors, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
-
+    
     @action(methods=['post'], detail=True)
     def signup(self, request, pk):
         """Post request for a user to sign up for an event"""
@@ -67,12 +68,23 @@ class FollowerSerializer(serializers.ModelSerializer):
         model = Author
         fields = ('id', 'full_name')
 
+class UserSerializer(serializers.ModelSerializer):
+    """JSON serializer for user
+    """
+
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'email', 'date_joined')
+
+
 class AuthorSerializer(serializers.ModelSerializer):
     """JSON serializer for authors
     """
+    user = UserSerializer(many=False)
+
 
     follower_of_author = FollowerSerializer(many=True)
 
     class Meta:
         model = Author
-        fields = ('id', 'user', 'bio', 'profile_image_url', 'follower_of_author', 'subscribed')
+        fields = ('id', 'user', 'bio', 'profile_image_url', 'follower_of_author', 'subscribed', 'full_name',)
