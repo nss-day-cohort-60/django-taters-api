@@ -1,9 +1,10 @@
 """View module for handling requests about authors"""
 from django.http import HttpResponseServerError
+import datetime
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from rareapi.models import Author
+from rareapi.models import Author, Subscription
 from rest_framework.decorators import action
 from django.contrib.auth.models import User
 
@@ -17,12 +18,21 @@ class AuthorView(ViewSet):
         Returns:
             Response -- JSON serialized author
         """
+        user = Author.objects.get(user=request.auth.user)
+        subscriptions = Subscription.objects.all()
+        subscriptions = subscriptions.filter(subscriber_id=user)
 
         try: 
             author = Author.objects.get(pk=pk)
+            subscriptions = subscriptions.filter(author_id=author)
+            if subscriptions:
+                author.subscribed = True
+            else:
+                author.subscribed = False
+
         except Author.DoesNotExist: 
             return Response(None, status=status.HTTP_404_NOT_FOUND)
-
+        
         serialized = AuthorSerializer(author, context={'request': request})
         return Response(serialized.data, status=status.HTTP_200_OK)
 
@@ -33,35 +43,35 @@ class AuthorView(ViewSet):
             Response -- JSON serialized list of authors
         """
         authors = Author.objects.all()
-        follower = Author.objects.get(user=request.auth.user)
+        subscriber = Author.objects.get(user=request.auth.user)
 
         # Set the `joined` property on every event
         for author in authors:
             # Check to see if the gamer is in the attendees list on the event
-            author.subscribed = follower in author.followers.all()
+            author.subscribed = subscriber in author.subscribers.all()
 
         serializer = AuthorSerializer(authors, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
     @action(methods=['post'], detail=True)
-    def signup(self, request, pk):
+    def subscribe(self, request, pk):
         """Post request for a user to sign up for an event"""
 
-        follower = Author.objects.get(user=request.auth.user)
-        author = Author.objects.get(pk=pk)
-        author.followers.add(follower)
+        current_user = Author.objects.get(user=request.auth.user)
+        author = Author.objects.get(pk=request.data)
+        author.subscribers.add(current_user)
         return Response({'message': 'Subscriber added'}, status=status.HTTP_201_CREATED)
 
     @action(methods=['delete'], detail=True)
-    def leave(self, request, pk):
+    def unsubscribe(self, request, pk):
         """Delete request for a user to leave an event"""
 
-        follower = Author.objects.get(user=request.auth.user)
+        current_user = Author.objects.get(user=request.auth.user)
         author = Author.objects.get(pk=pk)
-        author.followers.remove(follower)
+        author.subscribers.remove(current_user)
         return Response({'message': 'Subscriber removed'}, status=status.HTTP_204_NO_CONTENT)
 
-class FollowerSerializer(serializers.ModelSerializer):
+class SubscriberSerializer(serializers.ModelSerializer):
     """JSON serializer for attendees
     """
     class Meta:
@@ -83,8 +93,8 @@ class AuthorSerializer(serializers.ModelSerializer):
     user = UserSerializer(many=False)
 
 
-    follower_of_author = FollowerSerializer(many=True)
+    subscriber = SubscriberSerializer(many=True)
 
     class Meta:
         model = Author
-        fields = ('id', 'user', 'bio', 'profile_image_url', 'follower_of_author', 'subscribed', 'full_name', )
+        fields = ('id', 'user', 'bio', 'profile_image_url', 'subscriber', 'subscribed', 'full_name', )
