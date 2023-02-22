@@ -45,13 +45,12 @@ class PostView(ViewSet):
                 subscription_author = subscribed.author
                 posts = Post.objects.filter(author_id=subscription_author)
                 
-        #if statement for user
         elif "user" in request.query_params: 
             posts = Post.objects.filter(author_id=author)
 
         else:
             posts = Post.objects.all()
-            
+
         serializer = PostSerializer(posts, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
