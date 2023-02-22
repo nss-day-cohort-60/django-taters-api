@@ -148,6 +148,14 @@ class PostAuthorSerializer(serializers.ModelSerializer):
         fields = ('id', 'full_name')
 
 
+class PostCategorySerializer(serializers.ModelSerializer):
+    """JSON serializer for reactions
+    """
+    class Meta:
+        model = Category
+        fields = ('id', 'label')
+
+
 class PostSerializer(serializers.ModelSerializer):
     """JSON serializer for posts
     """
@@ -155,6 +163,7 @@ class PostSerializer(serializers.ModelSerializer):
     reactions = PostReactionSerializer(many=True)
     tags = PostTagSerializer(many=True)
     author = PostAuthorSerializer()
+    category = PostCategorySerializer(serializers.ModelSerializer)
 
     class Meta:
         model = Post
