@@ -47,7 +47,7 @@ class PostView(ViewSet):
                 
         elif "user" in request.query_params: 
             posts = Post.objects.filter(author_id=author)
-
+            
         else:
             posts = Post.objects.all()
 
