@@ -3,7 +3,7 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from rareapi.models import Post, Reaction, Tag, Author, Category, PostTag, Subscription
+from rareapi.models import Post, Reaction, Tag, Author, Category, PostTag, Subscription, Comment
 
 
 class PostView(ViewSet):
@@ -20,8 +20,13 @@ class PostView(ViewSet):
         Returns:
             Response -- JSON serialized events
         """
+        author = Author.objects.get(user=request.auth.user)
+
         try:
             post = Post.objects.get(pk=pk)
+
+            if post.author == author:
+                post.writer = True
 
         except Post.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
@@ -78,7 +83,7 @@ class PostView(ViewSet):
             author=author,
             category=category,
             title=request.data['title'],
-            publication_date=request.data['publication_date'],
+            # publication_date=request.data['publication_date'],
             image_url=request.data['image_url'],
             content=request.data['content']
         )
@@ -160,6 +165,14 @@ class PostCategorySerializer(serializers.ModelSerializer):
         fields = ('id', 'label')
 
 
+class PostCommentSerializer(serializers.ModelSerializer):
+    """JSON serializer for reactions
+    """
+    class Meta:
+        model = Comment
+        fields = ('id', 'author', 'content')
+
+
 class PostSerializer(serializers.ModelSerializer):
     """JSON serializer for posts
     """
@@ -168,9 +181,10 @@ class PostSerializer(serializers.ModelSerializer):
     tags = PostTagSerializer(many=True)
     author = PostAuthorSerializer()
     category = PostCategorySerializer(serializers.ModelSerializer)
+    post_comment = PostCommentSerializer(many=True)
 
     class Meta:
         model = Post
         fields = ('id', 'author', 'category',
                   'title', 'publication_date', 'image_url', 'content', 'approved',
-                  'reactions', 'tags')
+                  'reactions', 'tags', 'post_comment', 'writer')
