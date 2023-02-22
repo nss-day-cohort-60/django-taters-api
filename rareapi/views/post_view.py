@@ -52,7 +52,11 @@ class PostView(ViewSet):
                
         elif "user" in request.query_params: 
             posts = Post.objects.filter(author_id=author)
-            
+
+        elif "search" in request.query_params:
+            search_terms = request.query_params['search']
+            posts = Post.objects.filter(title__contains=search_terms)
+
         else:
             posts = Post.objects.all()
 
