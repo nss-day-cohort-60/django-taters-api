@@ -35,29 +35,26 @@ class PostView(ViewSet):
         Returns:
             Response -- JSON serialized list of posts
         """
-        posts = Post.objects.all()
-        # author = Author.objects.get(user=request.auth.user)
-
-        author = request.query_params.get('author', None)
-        if author is not None:
-            posts = posts.filter(author_id=author)
-
         posts = []
-        author = Author.objects.get(user=request.auth.user)
-
+        
         if "subscribed" in request.query_params:
             subscriptions = Subscription.objects.filter(follower_id=author)
-            
+
             for subscribed in subscriptions:
-                subscription_author= subscribed.author
+                subscription_author = subscribed.author
                 posts = Post.objects.filter(author_id=subscription_author)
 
         else:
             posts = Post.objects.all()
-            
+
+        author = Author.objects.filter(user=request.auth.user)
+        author = request.query_params.get('author', None)
+        if author is not None:
+            posts = posts.filter(author_id=author)
+        
         serializer = PostSerializer(posts, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
-    
+
     def create(self, request):
         """Handle POST operations
 
@@ -68,19 +65,19 @@ class PostView(ViewSet):
             author = Author.objects.get(user=request.auth.user)
         except Author.DoesNotExist:
             return Response({'message': 'You sent an invalid token'}, status=status.HTTP_404_NOT_FOUND)
-        
+
         try:
             category = Category.objects.get(pk=request.data['category'])
         except Category.DoesNotExist:
             return Response({'message': 'You sent an invalid category Id'}, status=status.HTTP_404_NOT_FOUND)
-        
+
         post = Post.objects.create(
-            author = author,
-            category = category,
-            title = request.data['title'],
-            publication_date = request.data['publication_date'],
-            image_url = request.data['image_url'],
-            content = request.data['content']
+            author=author,
+            category=category,
+            title=request.data['title'],
+            publication_date=request.data['publication_date'],
+            image_url=request.data['image_url'],
+            content=request.data['content']
         )
 
         tags_selected = request.data['tags']
@@ -88,24 +85,23 @@ class PostView(ViewSet):
         for tag in tags_selected:
             post_tag = PostTag()
             post_tag.post = post
-            post_tag.tag = Tag.objects.get(pk = tag)
+            post_tag.tag = Tag.objects.get(pk=tag)
             post_tag.save()
 
         serializer = PostSerializer(post)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
-    
+
     def update(self, request, pk):
         """Handle POST operations
 
         Returns
             Response -- JSON serialized game instance
         """
-        
+
         try:
             category = Category.objects.get(pk=request.data['category'])
         except Category.DoesNotExist:
             return Response({'message': 'You sent an invalid category Id'}, status=status.HTTP_404_NOT_FOUND)
-        
 
         post_to_update = Post.objects.get(pk=pk)
         post_to_update.publication_date = request.data['publication_date']
@@ -123,7 +119,7 @@ class PostView(ViewSet):
         for tag in tags_selected:
             post_tag = PostTag()
             post_tag.post = post_to_update
-            post_tag.tag = Tag.objects.get(pk = tag)
+            post_tag.tag = Tag.objects.get(pk=tag)
             post_tag.save()
 
         return Response(None, status=status.HTTP_204_NO_CONTENT)
@@ -143,6 +139,7 @@ class PostTagSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tag
         fields = ('id', 'label',)
+
 
 class PostAuthorSerializer(serializers.ModelSerializer):
     """JSON serializer for reactions
