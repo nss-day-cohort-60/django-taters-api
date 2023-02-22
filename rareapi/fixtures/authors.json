@@ -3,7 +3,7 @@
     "model": "rareapi.author",
     "pk": 1,
     "fields": {
-      "follower_id": 1,
+      "user": 1,
       "bio": "Hi, I'm Emily",
       "profile_image_url": "https://ih1.redbubble.net/image.457784941.2442/st,small,507x507-pad,600x600,f8f8f8.u5.jpg"
     }
@@ -12,7 +12,7 @@
     "model": "rareapi.author",
     "pk": 2,
     "fields": {
-      "follower_id": 2,
+      "user": 2,
       "bio": "Hi, I'm Jess",
       "profile_image_url": "https://ih1.redbubble.net/image.635283558.8706/st,small,507x507-pad,600x600,f8f8f8.u5.jpg"
     }
@@ -21,7 +21,7 @@
     "model": "rareapi.author",
     "pk": 3,
     "fields": {
-      "follower_id": 3,
+      "user": 3,
       "bio": "Hi, I'm Nick",
       "profile_image_url": "https://ih1.redbubble.net/image.435559879.6426/st,small,507x507-pad,600x600,f8f8f8.u2.jpg"
     }
@@ -30,7 +30,7 @@
     "model": "rareapi.author",
     "pk": 4,
     "fields": {
-      "follower_id": 4,
+      "user": 4,
       "bio": "Hi, I'm Lauren",
       "profile_image_url": "https://ih1.redbubble.net/image.502970825.9591/st,small,507x507-pad,600x600,f8f8f8.u10.jpg"
     }
@@ -39,7 +39,7 @@
     "model": "rareapi.author",
     "pk": 5,
     "fields": {
-      "follower_id": 5,
+      "user": 5,
       "bio": "Hi, I'm Maegan",
       "profile_image_url": "https://ih1.redbubble.net/image.639091335.6991/st,small,507x507-pad,600x600,f8f8f8.jpg"
     }
