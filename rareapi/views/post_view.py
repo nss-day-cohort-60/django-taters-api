@@ -20,8 +20,13 @@ class PostView(ViewSet):
         Returns:
             Response -- JSON serialized events
         """
+        author = Author.objects.get(user=request.auth.user)
+
         try:
             post = Post.objects.get(pk=pk)
+
+            if post.author == author:
+                post.writer = True
 
         except Post.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
@@ -178,4 +183,4 @@ class PostSerializer(serializers.ModelSerializer):
         model = Post
         fields = ('id', 'author', 'category',
                   'title', 'publication_date', 'image_url', 'content', 'approved',
-                  'reactions', 'tags', 'post_comment')
+                  'reactions', 'tags', 'post_comment', 'writer')

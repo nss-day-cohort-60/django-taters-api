@@ -15,9 +15,9 @@ class Post(models.Model):
     tags = models.ManyToManyField("Tag", through="posttag", related_name='tags_of_post')
 
     @property
-    def written_by(self):
-        return self.__written_by
+    def writer(self):
+        return self.__writer
 
-    @written_by.setter
-    def written_by(self, value):
-        self.__written_by = value
+    @writer.setter
+    def writer(self, value):
+        self.__writer = value
