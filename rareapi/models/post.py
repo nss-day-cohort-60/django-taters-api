@@ -7,7 +7,7 @@ class Post(models.Model):
     category = models.ForeignKey(
         'Category', on_delete=models.SET_NULL, related_name='post_category', null=True)
     title = models.CharField(max_length=155)
-    publication_date = models.DateField()
+    publication_date = models.DateField(auto_now=False, auto_now_add=True)
     image_url = models.CharField(max_length=250)
     content = models.CharField(max_length=500)
     approved = models.BooleanField(default=False)
