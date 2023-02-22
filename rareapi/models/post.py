@@ -13,3 +13,11 @@ class Post(models.Model):
     approved = models.BooleanField(default=False)
     reactions = models.ManyToManyField("Reaction", through="postreaction", related_name='reactions_of_post')
     tags = models.ManyToManyField("Tag", through="posttag", related_name='tags_of_post')
+
+    @property
+    def writer(self):
+        return self.__writer
+
+    @writer.setter
+    def writer(self, value):
+        self.__writer = value
