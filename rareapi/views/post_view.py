@@ -36,6 +36,7 @@ class PostView(ViewSet):
             Response -- JSON serialized list of posts
         """
         posts = []
+        author = Author.objects.get(user=request.auth.user)
         
         if "subscribed" in request.query_params:
             subscriptions = Subscription.objects.filter(follower_id=author)
@@ -43,15 +44,14 @@ class PostView(ViewSet):
             for subscribed in subscriptions:
                 subscription_author = subscribed.author
                 posts = Post.objects.filter(author_id=subscription_author)
+                
+        #if statement for user
+        elif "user" in request.query_params: 
+            posts = Post.objects.filter(author_id=author)
 
         else:
             posts = Post.objects.all()
-
-        author = Author.objects.filter(user=request.auth.user)
-        author = request.query_params.get('author', None)
-        if author is not None:
-            posts = posts.filter(author_id=author)
-        
+            
         serializer = PostSerializer(posts, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
