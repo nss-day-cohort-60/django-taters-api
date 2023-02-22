@@ -3,7 +3,7 @@
         "model": "rareapi.subscription",
         "pk": 1,
         "fields": {
-            "follower": 1,
+            "subscriber": 1,
             "author": 2,
             "created_on": "2023-02-17"
         }
@@ -12,7 +12,7 @@
         "model": "rareapi.subscription",
         "pk": 2,
         "fields": {
-            "follower": 2,
+            "subscriber": 2,
             "author": 1,
             "created_on": "2023-02-16"
         }
@@ -21,7 +21,7 @@
         "model": "rareapi.subscription",
         "pk": 3,
         "fields": {
-            "follower": 3,
+            "subscriber": 3,
             "author": 1,
             "created_on": "2023-02-14"
         }
@@ -30,7 +30,7 @@
         "model": "rareapi.subscription",
         "pk": 4,
         "fields": {
-            "follower": 2,
+            "subscriber": 2,
             "author": 3,
             "created_on": "2023-02-15"
         }
@@ -39,7 +39,7 @@
         "model": "rareapi.subscription",
         "pk": 5,
         "fields": {
-            "follower": 5,
+            "subscriber": 5,
             "author": 4,
             "created_on": "2023-02-15"
         }
