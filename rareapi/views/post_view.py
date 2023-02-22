@@ -42,7 +42,7 @@ class PostView(ViewSet):
             subscriptions = Subscription.objects.filter(follower_id=author)
             
             for subscribed in subscriptions:
-                subscription_author= subscribed.author
+                subscription_author = subscribed.author
                 posts = Post.objects.filter(author_id=subscription_author)
 
         else:

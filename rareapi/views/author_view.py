@@ -1,9 +1,10 @@
 """View module for handling requests about authors"""
 from django.http import HttpResponseServerError
+import datetime
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from rareapi.models import Author
+from rareapi.models import Author, Subscription
 from rest_framework.decorators import action
 from django.contrib.auth.models import User
 
@@ -17,12 +18,21 @@ class AuthorView(ViewSet):
         Returns:
             Response -- JSON serialized author
         """
+        user = Author.objects.get(user=request.auth.user)
+        subscriptions = Subscription.objects.all()
+        subscriptions = subscriptions.filter(follower_id=user)
 
         try: 
             author = Author.objects.get(pk=pk)
+            subscriptions = subscriptions.filter(author_id=author)
+            if subscriptions:
+                author.subscribed = True
+            else:
+                author.subscribed = False
+
         except Author.DoesNotExist: 
             return Response(None, status=status.HTTP_404_NOT_FOUND)
-
+        
         serialized = AuthorSerializer(author, context={'request': request})
         return Response(serialized.data, status=status.HTTP_200_OK)
 
@@ -44,7 +54,7 @@ class AuthorView(ViewSet):
         return Response(serializer.data, status=status.HTTP_200_OK)
     
     @action(methods=['post'], detail=True)
-    def signup(self, request, pk):
+    def subscribe(self, request, pk):
         """Post request for a user to sign up for an event"""
 
         follower = Author.objects.get(user=request.auth.user)
@@ -53,7 +63,7 @@ class AuthorView(ViewSet):
         return Response({'message': 'Subscriber added'}, status=status.HTTP_201_CREATED)
 
     @action(methods=['delete'], detail=True)
-    def leave(self, request, pk):
+    def unsubscribe(self, request, pk):
         """Delete request for a user to leave an event"""
 
         follower = Author.objects.get(user=request.auth.user)
