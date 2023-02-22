@@ -74,7 +74,7 @@ class PostView(ViewSet):
             author=author,
             category=category,
             title=request.data['title'],
-            publication_date=request.data['publication_date'],
+            # publication_date=request.data['publication_date'],
             image_url=request.data['image_url'],
             content=request.data['content']
         )
