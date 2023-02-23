@@ -49,13 +49,17 @@ class PostView(ViewSet):
             for subscribed in subscriptions:
                 subscription_author = subscribed.author
                 posts.extend(Post.objects.filter(author=subscription_author))
-               
+
         elif "user" in request.query_params: 
             posts = Post.objects.filter(author_id=author)
 
         elif "search" in request.query_params:
             search_terms = request.query_params['search']
             posts = Post.objects.filter(title__contains=search_terms)
+
+        elif "category" in request.query_params: 
+            category_posts = request.query_params['category']
+            posts = Post.objects.filter(category_id=category_posts)
 
         else:
             posts = Post.objects.all()
