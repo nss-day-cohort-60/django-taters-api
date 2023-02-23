@@ -112,7 +112,6 @@ class PostView(ViewSet):
             return Response({'message': 'You sent an invalid category Id'}, status=status.HTTP_404_NOT_FOUND)
 
         post_to_update = Post.objects.get(pk=pk)
-        # post_to_update.publication_date = request.data['publication_date']
         post_to_update.category = category
         post_to_update.title = request.data['title']
         post_to_update.image_url = request.data['image_url']
