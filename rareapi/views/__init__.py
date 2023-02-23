@@ -5,3 +5,4 @@ from .author_view import AuthorView
 from .category_view import CategoryView
 from .post_view import PostView
 from .comment_view import CommentView
+from .reaction_view import ReactionView
