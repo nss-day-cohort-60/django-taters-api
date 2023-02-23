@@ -14,11 +14,6 @@ class CommentView(ViewSet):
 
         if postId is not None:
             comments = comments.filter(post=postId)
-
-        # if "postId" in request.query_params:
-            # query = request.GET.get('postId')
-            # query_int = int(query)
-            # comments = comments.filter(post_id=query_int)
         
         else:
             pass
