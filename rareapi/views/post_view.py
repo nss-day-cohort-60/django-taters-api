@@ -57,6 +57,10 @@ class PostView(ViewSet):
             search_terms = request.query_params['search']
             posts = Post.objects.filter(title__contains=search_terms)
 
+        elif "category" in request.query_params: 
+            category_posts = request.query_params['category']
+            posts = Post.objects.filter(category_id=category_posts)
+
         else:
             posts = Post.objects.all()
 
@@ -83,7 +87,6 @@ class PostView(ViewSet):
             author=author,
             category=category,
             title=request.data['title'],
-            # publication_date=request.data['publication_date'],
             image_url=request.data['image_url'],
             content=request.data['content']
         )
