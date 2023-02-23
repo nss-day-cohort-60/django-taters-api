@@ -72,8 +72,18 @@ class CommentView(ViewSet):
         comment_to_update.save()
 
         return Response(None, status=status.HTTP_204_NO_CONTENT)
+
+
+class PostAuthorSerializer(serializers.ModelSerializer):
+    """JSON serializer for reactions
+    """
+    class Meta:
+        model = Author
+        fields = ('id', 'full_name')
     
 class CommentSerializer(serializers.ModelSerializer):
+
+    author = PostAuthorSerializer()
 
     class Meta:
         model = Comment

@@ -63,5 +63,18 @@
       "content": "Sports have the power to captivate us, bringing us together in moments of triumph and heartbreak. But beyond the scores and statistics lies a world of stories, emotions, and human connections. In this blog, we delve into the fascinating world of sports, exploring the stories behind the athletes and the games that inspire us. From the thrill of victory to the agony of defeat, we examine the emotional rollercoaster that comes with being a fan. We also explore the ways in which sports intersect with society, from the role of athletics in shaping culture and politics to the impact that sports can have on the lives of individuals. Whether you're a die-hard fan or simply interested in the human drama behind the game, join us as we uncover the stories and emotions that make sports so much more than just a game.",
       "approved": true
     }
+  },
+  {
+    "model": "rareapi.post",
+    "pk": 6,
+    "fields": {
+      "author": 5,
+      "category": 5,
+      "title": "Beyond the Game: Exploring the Stories and Emotions Behind Sports",
+      "publication_date": "2023-01-22",
+      "image_url": "https://i.insider.com/5dde8ed3fd9db256a7722149?width=700",
+      "content": "Sports have the power to captivate us, bringing us together in moments of triumph and heartbreak. But beyond the scores and statistics lies a world of stories, emotions, and human connections. In this blog, we delve into the fascinating world of sports, exploring the stories behind the athletes and the games that inspire us. From the thrill of victory to the agony of defeat, we examine the emotional rollercoaster that comes with being a fan. We also explore the ways in which sports intersect with society, from the role of athletics in shaping culture and politics to the impact that sports can have on the lives of individuals. Whether you're a die-hard fan or simply interested in the human drama behind the game, join us as we uncover the stories and emotions that make sports so much more than just a game.",
+      "approved": true
+    }
   }
 ]

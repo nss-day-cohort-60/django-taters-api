@@ -41,14 +41,6 @@
     },
     {
         "model": "rareapi.posttag",
-        "pk": 6,
-        "fields": {
-            "post": 1,
-            "tag": 3
-        }
-    },
-    {
-        "model": "rareapi.posttag",
         "pk": 7,
         "fields": {
             "post": 2,
