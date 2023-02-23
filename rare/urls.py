@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
 from rest_framework import routers
-from rareapi.views import CategoryView, AuthorView, TagView, register_user, login_user, PostView
+from rareapi.views import CategoryView, AuthorView, TagView, CommentView, register_user, login_user, PostView
 
 
 router = routers.DefaultRouter(trailing_slash=False)
@@ -25,6 +25,7 @@ router.register(r'categories', CategoryView, 'category')
 router.register(r'tags', TagView, 'tag')
 router.register(r'users', AuthorView, 'author')
 router.register(r'posts', PostView, 'post')
+router.register(r'comments', CommentView, 'comment')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
