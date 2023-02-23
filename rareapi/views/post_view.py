@@ -42,7 +42,7 @@ class PostView(ViewSet):
         """
         posts = []
         author = Author.objects.get(user=request.auth.user)
-        
+
         if "subscribed" in request.query_params:
             subscriptions = Subscription.objects.filter(subscriber_id=author)
 
@@ -53,6 +53,7 @@ class PostView(ViewSet):
         elif "user" in request.query_params: 
             posts = Post.objects.filter(author_id=author)
 
+            
         elif "search" in request.query_params:
             search_terms = request.query_params['search']
             posts = Post.objects.filter(title__contains=search_terms)
