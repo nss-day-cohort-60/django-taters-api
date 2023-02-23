@@ -7,13 +7,18 @@ from rareapi.models import Comment, Author, Post
 
 class CommentView(ViewSet):
 
-    def list(self, request, pk=None):
+    def list(self, request):
 
         comments = Comment.objects.all()
+        postId = self.request.query_params.get('postId')
 
-        if "postId" in request.query_params:
-            current_post = Post.objects.get(pk=pk)
-            comments = Comment.objects.filter(post_id=current_post)
+        if postId is not None:
+            comments = comments.filter(post=postId)
+
+        # if "postId" in request.query_params:
+            # query = request.GET.get('postId')
+            # query_int = int(query)
+            # comments = comments.filter(post_id=query_int)
         
         else:
             pass
