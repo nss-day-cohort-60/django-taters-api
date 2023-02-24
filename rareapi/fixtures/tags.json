@@ -3,35 +3,105 @@
         "model": "rareapi.tag",
         "pk": 1,
         "fields": {
-            "label": "Software Development"
+            "label": "Travel"
         }
     },
     {
         "model": "rareapi.tag",
         "pk": 2,
         "fields": {
-            "label": "Potatoes"
+            "label": "Blogging"
         }
     },
     {
         "model": "rareapi.tag",
         "pk": 3,
         "fields": {
-            "label": "Rattails"
+            "label": "Nature"
         }
     },
     {
         "model": "rareapi.tag",
         "pk": 4,
         "fields": {
-            "label": "Things that go 'meow'"
+            "label": "Sports"
         }
     },
     {
         "model": "rareapi.tag",
         "pk": 5,
         "fields": {
-            "label": "Wabi Sabi"
+            "label": "Football"
+        }
+    },
+    {
+        "model": "rareapi.tag",
+        "pk": 6,
+        "fields": {
+            "label": "Athletes"
+        }
+    },
+    {
+        "model": "rareapi.tag",
+        "pk": 7,
+        "fields": {
+            "label": "Music"
+        }
+    },
+    {
+        "model": "rareapi.tag",
+        "pk": 8,
+        "fields": {
+            "label": "Mood"
+        }
+    },
+    {
+        "model": "rareapi.tag",
+        "pk": 9,
+        "fields": {
+            "label": "Random"
+        }
+    },
+    {
+        "model": "rareapi.tag",
+        "pk": 10,
+        "fields": {
+            "label": "Musicians"
+        }
+    },
+    {
+        "model": "rareapi.tag",
+        "pk": 11,
+        "fields": {
+            "label": "Software Development"
+        }
+    },
+    {
+        "model": "rareapi.tag",
+        "pk": 12,
+        "fields": {
+            "label": "Love"
+        }
+    },
+    {
+        "model": "rareapi.tag",
+        "pk": 13,
+        "fields": {
+            "label": "Technology"
+        }
+    },
+    {
+        "model": "rareapi.tag",
+        "pk": 14,
+        "fields": {
+            "label": "Animals"
+        }
+    },
+    {
+        "model": "rareapi.tag",
+        "pk": 15,
+        "fields": {
+            "label": "Eating"
         }
     }
 ]
