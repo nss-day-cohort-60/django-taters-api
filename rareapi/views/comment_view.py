@@ -16,7 +16,7 @@ class CommentView(ViewSet):
         if postId is not None:
             comments = comments.filter(post=postId)
 
-            for comment in comments: 
+            for comment in comments:
                 if comment.author == author:
                     comment.writer = True
 
@@ -29,19 +29,21 @@ class CommentView(ViewSet):
         serialized = CommentSerializer(comments, many=True)
         return Response(serialized.data, status=status.HTTP_200_OK)
 
+
     def retrieve(self, request, pk=None):
 
         author = Author.objects.get(user=request.auth.user)
 
-        comment = Comment.objects.get(pk=pk)
-        if comment.author == author:
-            comment.writer = True
+        try:
+            comment = Comment.objects.get(pk=pk)
+            if comment.author == author:
+                comment.writer = True
 
-        else:
-            comment.writer = False
+            else:
+                comment.writer = False
 
-        # else Comment.DoesNotExist:
-        #     return Response(None, status=status.HTTP_404_NOT_FOUND)
+        except Comment.DoesNotExist:
+            return Response(None, status=status.HTTP_404_NOT_FOUND)
 
         serialized = CommentSerializer(comment, context={'request': request})
         return Response(serialized.data, status=status.HTTP_200_OK)
