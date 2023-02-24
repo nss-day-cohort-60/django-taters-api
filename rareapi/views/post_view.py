@@ -141,7 +141,7 @@ class PostReactionSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Reaction
-        fields = ('id', 'label', 'emoji_url')
+        fields = ('id', 'label', 'emoji_icon')
 
 
 class PostTagSerializer(serializers.ModelSerializer):

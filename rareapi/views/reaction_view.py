@@ -46,4 +46,4 @@ class ReactionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Reaction
-        fields = ('id', 'label', 'emoji_url', 'emoji_icon', 'post_reaction_count')
+        fields = ('id', 'label', 'emoji_icon', 'post_reaction_count')
