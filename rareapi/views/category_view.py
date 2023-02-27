@@ -9,7 +9,8 @@ class CategoryView(ViewSet):
 
     def list(self, request):
 
-        categories = Category.objects.all()
+        # categories = Category.objects.all()
+        categories = Category.objects.order_by('label')
         serialized = CategorySerializer(categories, many=True)
         return Response(serialized.data, status=status.HTTP_200_OK)
 
