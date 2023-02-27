@@ -45,11 +45,12 @@ class PostView(ViewSet):
 
         if "subscribed" in request.query_params:
             subscriptions = Subscription.objects.filter(subscriber_id=author)
-
+            
             for subscribed in subscriptions:
                 subscription_author = subscribed.author
-                posts.extend(Post.objects.filter(author=subscription_author))
-
+                orderedPosts = Post.objects.order_by('-publication_date').filter(author=subscription_author)
+                posts.extend(orderedPosts)
+            
         elif "user" in request.query_params: 
             posts = Post.objects.filter(author_id=author)
 
