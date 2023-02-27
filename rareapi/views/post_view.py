@@ -64,6 +64,7 @@ class PostView(ViewSet):
 
         else:
             posts = Post.objects.all()
+            # .order_by("publication_date")
 
         serializer = PostSerializer(posts, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
