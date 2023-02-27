@@ -34,5 +34,54 @@
         "fields": {
             "label": "Sports"
         }
+    },
+    {
+        "model": "rareapi.category",
+        "pk": 6,
+        "fields": {
+            "label": "Love/Romance"
+        }
+    },
+    {
+        "model": "rareapi.category",
+        "pk": 7,
+        "fields": {
+            "label": "Comedy"
+        }
+    },
+    {
+        "model": "rareapi.category",
+        "pk": 8,
+        "fields": {
+            "label": "Randomness"
+        }
+    },
+    {
+        "model": "rareapi.category",
+        "pk": 9,
+        "fields": {
+            "label": "Advice"
+        }
+    },
+    {
+        "model": "rareapi.category",
+        "pk": 10,
+        "fields": {
+            "label": "Home & Garden"
+        }
+    },
+    {
+        "model": "rareapi.category",
+        "pk": 11,
+        "fields": {
+            "label": "Family"
+        }
+    },
+    {
+        "model": "rareapi.category",
+        "pk": 12,
+        "fields": {
+            "label": "Animals"
+        }
     }
 ]

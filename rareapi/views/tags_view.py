@@ -32,7 +32,8 @@ class TagView(ViewSet):
             Response -- JSON serialized list of tags
         """
         # Make connection with server to retrieve a query set of all tags items requested by client and assign the found instances to the tags variable
-        tags = Tag.objects.all()
+        # tags = Tag.objects.all()
+        tags = Tag.objects.order_by('label')
         #passes instances stored in tags variable to the serializer class to construct data into JSON stringified objects, which it then assigns to variable serializer
         serializer = TagSerializer(tags, many=True)
         
