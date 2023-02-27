@@ -76,5 +76,57 @@
       "content": "With free agency around the corner and the 2023 NFL Draft coming up in April, Kevin Patra assesses the wide receiver situations of all 32 teams in the NFL. Teams are sorted into categories signifying the level of stability at the position, then listed in alphabetical order along with the top wideouts under contract for 2023 as well as key players who are not under contract for next season. Those WRs are denoted as unrestricted free agents (UFA), restricted free agents (RFA) or exclusive rights free agents (ERFA); (void) indicates remaining years on a contract will be voided, enabling the player to become a free agent.",
       "approved": true
     }
+  },
+  {
+    "model": "rareapi.post",
+    "pk": 7,
+    "fields": {
+      "author": 1,
+      "category": 6,
+      "title": "Do you know the 5 love languages?",
+      "publication_date": "2023-02-27",
+      "image_url": "https://writer.com/wp-content/uploads/2022/03/The-5-love-languages-at-work_-how-to-choose-the-right-words-for-team-success.png?w=1000",
+      "content": "When we know what another person's love language is, we can choose the gestures that will most resonate with our partner, friend, parent or child. And when we know which actions speak to us and make us feel loved, we can ask other people for exactly what we need. While there are plenty of online quizzes to tell you what your love language is, it's easy to figure out yours and what your loved ones' are by looking at what lights them up, what presents they give you (since many of us bestow on others what we would most like), and what their perfect day would look and feel like.",
+      "approved": true
+    }
+  },
+  {
+    "model": "rareapi.post",
+    "pk": 8,
+    "fields": {
+      "author": 4,
+      "category": 9,
+      "title": "Here are 9 simple travel blogging tips",
+      "publication_date": "2023-02-27",
+      "image_url": "https://createandgo.com/wp-content/uploads/2021/10/Travel-Blogger-Collage.jpg",
+      "content": "1. Take lots of photos.  2. Be Vigilant with your Note Taking and Journal Writing.  3. Get your Permalink Structure right.  4. Know Travel Blogging will consume a Lot of your Time.  5. Go outside your Niche for Traffic.  6. Be Open to different story angles.  7. Speed and SEO are important.  8. The travel blogging community is helpful.  9. You'll feel like Quitting",
+      "approved": true
+    }
+  },
+  {
+    "model": "rareapi.post",
+    "pk": 9,
+    "fields": {
+      "author": 5,
+      "category": 12,
+      "title": "Cat Cafés: That's Just NOT How They Work",
+      "publication_date": "2023-02-27",
+      "image_url": "https://images.squarespace-cdn.com/content/v1/59014ed8db29d637250fa476/1566784309001-AJ2HUBM6ITMQ3LGPEZJO/Mewsic+Kitty+Cafe+Nashville",
+      "content": "I used to run a cat cafe with my husband, and it was one of the greatest joys of my life so far. I am begging you, for the love of all things meowly, please do not bring your own cat with you. In fact, try to adopt one while you're there!",
+      "approved": true
+    }
+  },
+  {
+    "model": "rareapi.post",
+    "pk": 10,
+    "fields": {
+      "author": 2,
+      "category": 10,
+      "title": "How Handy Ma'am Changed my Life",
+      "publication_date": "2023-02-27",
+      "image_url": "https://hips.hearstapps.com/hmg-prod/images/aspyn-ovard-house-makeover-vintage-revivals-32-1531493149.jpg",
+      "content": "Ever since I discovered an app called the Handy Ma'am, I have been so happy! It allows me to take the time creating beautiful spaces in my own home, but to also turn around and use my expertise creating the same in other ladies' homes. I urge you to sign up on Handy Ma'am today and look for my profile!",
+      "approved": true
+    }
   }
 ]
