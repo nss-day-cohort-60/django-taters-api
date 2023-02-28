@@ -7,6 +7,8 @@ from rest_framework import serializers, status
 from rareapi.models import Author, Subscription
 from rest_framework.decorators import action
 from django.contrib.auth.models import User
+from django.db.models import Count
+from django.db.models import Q
 
 
 class AuthorView(ViewSet):
@@ -50,6 +52,10 @@ class AuthorView(ViewSet):
             # Check to see if the gamer is in the attendees list on the event
             author.subscribed = subscriber in author.subscribers.all()
 
+        authors = Author.objects.annotate(
+            followers_count=Count('subscribers')
+        )
+
         serializer = AuthorSerializer(authors, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
@@ -91,10 +97,9 @@ class AuthorSerializer(serializers.ModelSerializer):
     """JSON serializer for authors
     """
     user = UserSerializer(many=False)
-
-
+    followers_count = serializers.IntegerField(default=None)
     subscriber = SubscriberSerializer(many=True)
 
     class Meta:
         model = Author
-        fields = ('id', 'user', 'bio', 'profile_image_url', 'subscriber', 'subscribed', 'full_name', )
+        fields = ('id', 'user', 'bio', 'profile_image_url', 'subscriber', 'subscribed', 'full_name', 'followers_count')
