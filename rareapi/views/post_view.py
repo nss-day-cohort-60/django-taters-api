@@ -43,21 +43,12 @@ class PostView(ViewSet):
         posts = []
         author = Author.objects.get(user=request.auth.user)
 
-        if "subscribed" in request.query_params: 
-            author_id_list = Subscription.objects.filter(subscriber=author).values_list('author', flat=True)
-            posts = Post.objects.filter(author__in=author_id_list).order_by("-publication_date")
-        # if "subscribed" in request.query_params:
-        #     subscriptions = Subscription.objects.filter(subscriber_id=author)
-            
-        #     for subscribed in subscriptions:
-        #         subscription_author = subscribed.author
-        #         orderedPosts = Post.objects.order_by('publication_date',).filter(author=subscription_author)
-        #         posts.extend(orderedPosts)
-            
+        if "subscribed" in request.query_params:
+            posts = Post.objects.filter(author__in=Author.objects.filter(subscribers__user=request.auth.user)).order_by("-publication_date")
+
         elif "user" in request.query_params: 
             posts = Post.objects.filter(author_id=author)
-
-            
+ 
         elif "search" in request.query_params:
             search_terms = request.query_params['search']
             posts = Post.objects.filter(title__contains=search_terms)
