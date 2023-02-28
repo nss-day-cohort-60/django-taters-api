@@ -45,16 +45,16 @@ class AuthorView(ViewSet):
             Response -- JSON serialized list of authors
         """
         authors = Author.objects.all()
-        subscriber = Author.objects.get(user=request.auth.user)
-
-        # Set the `joined` property on every event
-        for author in authors:
-            # Check to see if the gamer is in the attendees list on the event
-            author.subscribed = subscriber in author.subscribers.all()
-
         authors = Author.objects.annotate(
             followers_count=Count('subscribers')
         )
+
+        for author in authors:
+            subscriptions = Subscription.objects.filter(Q(subscriber__user=request.auth.user) & Q(author_id=author))
+            if subscriptions:
+                author.subscribed = True
+            else:
+                author.subscribed = False
 
         serializer = AuthorSerializer(authors, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
