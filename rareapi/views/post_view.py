@@ -46,16 +46,9 @@ class PostView(ViewSet):
         if "subscribed" in request.query_params:
             posts = Post.objects.filter(author__in=Author.objects.filter(subscribers__user=request.auth.user)).order_by("-publication_date")
 
-            # subscriptions = Subscription.objects.filter(subscriber_id=author)
-
-            # for subscribed in subscriptions:
-            #     subscription_author = subscribed.author
-            #     posts.extend(Post.objects.filter(author=subscription_author))
-
         elif "user" in request.query_params: 
             posts = Post.objects.filter(author_id=author)
-
-            
+ 
         elif "search" in request.query_params:
             search_terms = request.query_params['search']
             posts = Post.objects.filter(title__contains=search_terms)
@@ -66,6 +59,7 @@ class PostView(ViewSet):
 
         else:
             posts = Post.objects.all()
+            # .order_by("publication_date")
 
         serializer = PostSerializer(posts, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
