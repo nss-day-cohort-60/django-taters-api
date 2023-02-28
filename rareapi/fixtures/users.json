@@ -68,5 +68,106 @@
             "date_joined": "2021-06-28T14:51:39.989Z",
             "is_active": true
         }
+    },
+    {
+        "model": "auth.user",
+        "pk": 6,
+        "fields": {
+            "first_name": "Wil",
+            "last_name": "Hammond",
+            "email": "wil@email.com",
+            "username": "whammond",
+            "is_staff": false,
+            "password": "pbkdf2_sha256$216000$qMRH8szID7Z8$Vljya2V3XfruOHuvx1hGz9ZyKg4bxbw7rc2WO0gTR7I=",
+            "date_joined": "2021-06-28T14:51:39.989Z",
+            "is_active": true
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 7,
+        "fields": {
+            "first_name": "Jordon",
+            "last_name": "Perkins",
+            "email": "jordon@email.com",
+            "username": "jperkins",
+            "is_staff": false,
+            "password": "pbkdf2_sha256$216000$qMRH8szID7Z8$Vljya2V3XfruOHuvx1hGz9ZyKg4bxbw7rc2WO0gTR7I=",
+            "date_joined": "2021-06-28T14:51:39.989Z",
+            "is_active": true
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 8,
+        "fields": {
+            "first_name": "Vanessa",
+            "last_name": "Spear",
+            "email": "vanessa@email.com",
+            "username": "vspear",
+            "is_staff": false,
+            "password": "pbkdf2_sha256$216000$qMRH8szID7Z8$Vljya2V3XfruOHuvx1hGz9ZyKg4bxbw7rc2WO0gTR7I=",
+            "date_joined": "2021-06-28T14:51:39.989Z",
+            "is_active": true
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 9,
+        "fields": {
+            "first_name": "Dakota",
+            "last_name": "Lambert",
+            "email": "lambo@email.com",
+            "username": "lambo",
+            "is_staff": false,
+            "password": "pbkdf2_sha256$216000$qMRH8szID7Z8$Vljya2V3XfruOHuvx1hGz9ZyKg4bxbw7rc2WO0gTR7I=",
+            "date_joined": "2021-06-28T14:51:39.989Z",
+            "is_active": true
+        }
+    }
+    ,
+    {
+        "model": "auth.user",
+        "pk": 10,
+        "fields": {
+            "first_name": "James",
+            "last_name": "Linkous",
+            "email": "jlink@email.com",
+            "username": "jlinkous",
+            "is_staff": false,
+            "password": "pbkdf2_sha256$216000$qMRH8szID7Z8$Vljya2V3XfruOHuvx1hGz9ZyKg4bxbw7rc2WO0gTR7I=",
+            "date_joined": "2021-06-28T14:51:39.989Z",
+            "is_active": true
+        }
+    }
+    ,
+    {
+        "model": "auth.user",
+        "pk": 11,
+        "fields": {
+            "first_name": "Sydney",
+            "last_name": "Dickson",
+            "email": "sydney@email.com",
+            "username": "sdickson",
+            "is_staff": false,
+            "password": "pbkdf2_sha256$216000$qMRH8szID7Z8$Vljya2V3XfruOHuvx1hGz9ZyKg4bxbw7rc2WO0gTR7I=",
+            "date_joined": "2021-06-28T14:51:39.989Z",
+            "is_active": true
+        }
+    }
+    ,
+    {
+        "model": "auth.user",
+        "pk": 12,
+        "fields": {
+            "first_name": "Kimber",
+            "last_name": "Burton",
+            "email": "kburton@email.com",
+            "username": "kimber",
+            "is_staff": false,
+            "password": "pbkdf2_sha256$216000$qMRH8szID7Z8$Vljya2V3XfruOHuvx1hGz9ZyKg4bxbw7rc2WO0gTR7I=",
+            "date_joined": "2021-06-28T14:51:39.989Z",
+            "is_active": true
+        }
     }
 ]

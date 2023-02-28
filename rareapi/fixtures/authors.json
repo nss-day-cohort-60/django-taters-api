@@ -5,7 +5,7 @@
     "fields": {
       "user": 1,
       "bio": "Hi, I'm Emily",
-      "profile_image_url": "https://ih1.redbubble.net/image.457784941.2442/st,small,507x507-pad,600x600,f8f8f8.u5.jpg"
+      "profile_image_url": "https://ca.slack-edge.com/T03F2SDTJ-U043CU3TMA7-68a4d5d18376-512"
     }
   },
   {
@@ -14,7 +14,7 @@
     "fields": {
       "user": 2,
       "bio": "Hi, I'm Jess",
-      "profile_image_url": "https://ih1.redbubble.net/image.635283558.8706/st,small,507x507-pad,600x600,f8f8f8.u5.jpg"
+      "profile_image_url": "https://ca.slack-edge.com/T03F2SDTJ-U03UPM9PHEZ-4df6f16c0550-512"
     }
   },
   {
@@ -23,7 +23,7 @@
     "fields": {
       "user": 3,
       "bio": "Hi, I'm Nick",
-      "profile_image_url": "https://ih1.redbubble.net/image.435559879.6426/st,small,507x507-pad,600x600,f8f8f8.u2.jpg"
+      "profile_image_url": "https://ca.slack-edge.com/T03F2SDTJ-U0402BJNZ8Q-7dc4a1ade1c4-512"
     }
   },
   {
@@ -32,7 +32,7 @@
     "fields": {
       "user": 4,
       "bio": "Hi, I'm Lauren",
-      "profile_image_url": "https://ih1.redbubble.net/image.502970825.9591/st,small,507x507-pad,600x600,f8f8f8.u10.jpg"
+      "profile_image_url": "https://ca.slack-edge.com/T03F2SDTJ-U03USHAEMM1-a378d930fa59-512"
     }
   },
   {
@@ -41,7 +41,74 @@
     "fields": {
       "user": 5,
       "bio": "Hi, I'm Maegan",
-      "profile_image_url": "https://ih1.redbubble.net/image.639091335.6991/st,small,507x507-pad,600x600,f8f8f8.jpg"
+      "profile_image_url": "https://ca.slack-edge.com/T03F2SDTJ-U03UL2LP23G-2977701ddcdc-512"
+    }
+  },
+  {
+    "model": "rareapi.author",
+    "pk": 6,
+    "fields": {
+      "user": 6,
+      "bio": "Hi, I'm Will",
+      "profile_image_url": "https://ca.slack-edge.com/T03F2SDTJ-U03USLKUU6N-b30f9b1b8594-512"
+    }
+  },
+  {
+    "model": "rareapi.author",
+    "pk": 7,
+    "fields": {
+      "user": 7,
+      "bio": "Hi, I'm Jordon",
+      "profile_image_url": "https://ca.slack-edge.com/T03F2SDTJ-U03UL2LSGT0-76a956bf6aad-512"
+    }
+  },
+  {
+    "model": "rareapi.author",
+    "pk": 8,
+    "fields": {
+      "user": 8,
+      "bio": "Hi, I'm Vanessa",
+      "profile_image_url": "https://ca.slack-edge.com/T03F2SDTJ-U03UC3U0N95-7d504aeed6f8-512"
+    }
+  }
+  ,
+  {
+    "model": "rareapi.author",
+    "pk": 9,
+    "fields": {
+      "user": 9,
+      "bio": "Hi, I'm Dakota",
+      "profile_image_url": "https://ca.slack-edge.com/T03F2SDTJ-U01QCNNDKAB-67101e0cdcbf-512"
+    }
+  }
+  ,
+  {
+    "model": "rareapi.author",
+    "pk": 10,
+    "fields": {
+      "user": 10,
+      "bio": "Hi, I'm James",
+      "profile_image_url": "https://ca.slack-edge.com/T03F2SDTJ-U0400708ZM4-ac23cea32a8c-512"
+    }
+  }
+  ,
+  {
+    "model": "rareapi.author",
+    "pk": 11,
+    "fields": {
+      "user": 11,
+      "bio": "Hi, I'm Sydney",
+      "profile_image_url": "https://ca.slack-edge.com/T03F2SDTJ-U034T7VC2LC-daadd44cb86a-512"
+    }
+  }
+  ,
+  {
+    "model": "rareapi.author",
+    "pk": 12,
+    "fields": {
+      "user": 12,
+      "bio": "Hi, I'm Kimber",
+      "profile_image_url": "https://ca.slack-edge.com/T03F2SDTJ-U03USHA2YV9-a97f68078431-512"
     }
   }
 ]
